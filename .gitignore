@@ -4,6 +4,10 @@ node_modules/
 # Ignore log files
 *.log
 
+# Ignore test results
+test-results/
+playwright-report/
+
 # Ignore build directories
 dist/
 build/
