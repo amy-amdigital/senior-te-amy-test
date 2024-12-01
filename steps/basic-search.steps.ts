@@ -1,9 +1,5 @@
 import { expect } from '@playwright/test';
-import { createBdd } from 'playwright-bdd';
-import { sharedSteps } from './shared.steps';
-
-const { Given, When, Then } = createBdd();
-sharedSteps();
+import {Given, When, Then} from '../fixtures';
 
 Given('the user has performed a search for {string}', async ({ page }, searchTerm) => {
     await page.goto('/');
@@ -13,9 +9,6 @@ Given('the user has performed a search for {string}', async ({ page }, searchTer
 
     // User is navigated to the search results page
     await expect(page).toHaveURL(/documents/); 
-
-    // The page has loaded
-
 });
 
 When('the user enters the search term {string}', async ({page}, searchTerm) => {

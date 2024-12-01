@@ -1,5 +1,5 @@
 /** Generated from: features\basic-search.feature */
-import { test } from "playwright-bdd";
+import { test } from "../../fixtures.ts";
 
 test.describe("Quartex Basic Search", () => {
 
