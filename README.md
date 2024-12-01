@@ -1,4 +1,22 @@
 
+# senior-te-amy-test
+
+## Set Up
+
+Clone this repository and follow the instructions below to get the tests up and running.
+
+### Install Node.js and npm
+
+This guide uses `npm` and `npx` commands.
+
+- `npx` is bundled with `npm`, which comes with Node.js.
+
+Download and install Node.js from the [official Node.js website](https://nodejs.org/). This installation will automatically include npm and npx.
+
+### Verify the Installation
+
+After installing Node.js, verify the installation by running the following commands in your terminal (Command Prompt, PowerShell, or Visual Studio's integrated terminal):
+
 These commands should output the installed versions of Node.js, npm, and npx.
 
 ### Using npx in Visual Studio
