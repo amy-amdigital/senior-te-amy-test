@@ -39,14 +39,6 @@ Then('the first page of search results is displayed', async ({ page }) => {
     expect(await pageNumberInput.inputValue()).toBe('1');
 });
 
-Then('the asset {string} is listed', async ({ page }, assetTitle) => {
-    const results = page.getByTestId('documentSearchResultContainer');
-    await expect(results).toBeVisible();
-
-    const listItems = results.locator('li');
-    await expect(listItems.filter({ hasText: assetTitle })).toBeVisible();
-});
-
 Then('a message is output informing the user that no results are available', async ({ page }) => {
     const noResultsMessage = page.getByText('Sorry, no results found that match your criteria.');
     await expect(noResultsMessage).toBeVisible();

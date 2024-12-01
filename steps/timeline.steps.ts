@@ -1,17 +1,6 @@
 import { expect } from '@playwright/test';
 import {Given, When, Then} from '../fixtures';
 
-Given('the user selects the navigation dropdown {string} and navigates to {string}', async ({ page }, dropdownOption, pageName) => {
-    const menuDropdown = page.getByLabel(dropdownOption, { exact: true })
-    await expect(menuDropdown).toBeVisible();
-    await menuDropdown.click();
-
-    const pageLink = page.getByText(pageName);
-    await expect(pageLink).toBeVisible();
-    await pageLink.click();
-
-});
-
 When('the Timeline is visible', async ({ page }) => {
     const timeline = page.locator('#section-timeline-2017-order-1');
     await expect(timeline).toBeVisible();
