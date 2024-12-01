@@ -7,30 +7,30 @@ Given('the user is on the Quartex site', async ({ page }) => {
 
 Given('the user selects the navigation dropdown {string} and navigates to {string}', async ({ page }, dropdownOption, pageName) => {
     const menuDropdown = page.getByLabel(dropdownOption, { exact: true })
-    await expect(menuDropdown).toBeVisible();
+    await menuDropdown.waitFor({ state: 'visible' });
     await menuDropdown.click();
 
     const pageLink = page.getByText(pageName);
-    await expect(pageLink).toBeVisible();
+    await pageLink.waitFor({ state: 'visible' });
     await pageLink.click();
 
 });
 
 Given('the user selects the navigation item {string}', async ({ page }, pageName) => {
     const pageLink = page.getByText(pageName);
-    await expect(pageLink).toBeVisible();
+    await pageLink.waitFor({ state: 'visible' });
     await pageLink.click();
 });
 
 When('the user clicks the button {string}', async ({ page }, buttonName) => {
     const button = page.getByRole('button', { name: buttonName, exact: true }).first();
-    await expect(button).toBeVisible();
+    await button.waitFor({ state: 'visible' });
     await button.click();
 });
 
 When('the user clicks on the link {string}', async ({ page }, linkName) => {
     const link = page.getByRole('link', { name: linkName })
-    expect(link).toBeVisible();
+    await link.waitFor({ state: 'visible' });
     await link.click();
 });
 
@@ -57,8 +57,8 @@ Then('the number of results listed is equal to {int}', async ({ page }, expected
 
 Then('the asset {string} is listed', async ({ page }, assetTitle) => {
     const results = page.getByTestId('documentSearchResultContainer');
-    await expect(results).toBeVisible();
+    await results.waitFor({ state: 'visible' });
 
-    const listItems = results.locator('li');
+    const listItems = results.locator('> li');
     await expect(listItems.filter({ hasText: assetTitle })).toBeVisible();
 });

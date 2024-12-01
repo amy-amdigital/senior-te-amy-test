@@ -19,13 +19,13 @@ When('the user enters the search term {string}', async ({page}, searchTerm) => {
 
 When('the user selects to filter the search results by the collection {string}', async ({ page }, collection) => {
     const collectionLabel = page.locator('label').filter({ hasText: collection });
-    await expect(collectionLabel).toBeVisible();
+    await collectionLabel.waitFor({ state: 'visible' });
     await collectionLabel.click();
 });
 
 When('there are no assets meeting the search criteria', async ({ page }) => {
     const pageNumberInput = page.locator('#pagination-top-page').first();
-    await expect(pageNumberInput).toBeVisible();
+    await pageNumberInput.waitFor({ state: 'visible' });
     expect(await pageNumberInput.inputValue()).toBe('1');
 
     
@@ -35,7 +35,7 @@ When('there are no assets meeting the search criteria', async ({ page }) => {
 
 Then('the first page of search results is displayed', async ({ page }) => {
     const pageNumberInput = page.locator('#pagination-top-page').first();
-    await expect(pageNumberInput).toBeVisible();
+    await pageNumberInput.waitFor({ state: 'visible' });
     expect(await pageNumberInput.inputValue()).toBe('1');
 });
 

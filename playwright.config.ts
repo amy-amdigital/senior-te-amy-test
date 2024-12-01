@@ -8,6 +8,7 @@ const testDir = defineBddConfig({
 
 export default defineConfig({
   testDir,
+  workers: 4,
   use: {
     baseURL: 'https://demo.quartexcollections.com/',
   },
@@ -17,8 +18,12 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: 'edge',
+      use: { ...devices['Desktop Edge'] },
     },
+    {
+      name: 'safari',
+      use: { ...devices['Desktop Safari'] },
+    }
   ],
 });

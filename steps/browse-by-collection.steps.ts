@@ -3,7 +3,7 @@ import {Given, When, Then} from '../fixtures';
 
 When('the user selects the letter {string}', async ({ page }, letter) => {
     const aTozRightButton = page.getByLabel('Scroll right');
-    await expect(aTozRightButton).toBeVisible();
+    await aTozRightButton.waitFor({ state: 'visible' });
     await aTozRightButton.click();
 
     const letterButton = page.getByLabel(`Letter ${letter} link`)

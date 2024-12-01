@@ -8,7 +8,7 @@ When('the Timeline is visible', async ({ page }) => {
 
 When('the user clicks a hyperlink available on the Timeline content block', async ({ page }) => {
     const loadingText = page.getByText('Loading...');
-    await expect(loadingText).toBeVisible();
+    await loadingText.waitFor({ state: 'visible' });
     await loadingText.evaluate((el) => el.scrollIntoView({ behavior: 'smooth', block: 'center' }));    
 
     const link = page.getByRole('link', { name: 'one of their first love' }).first();
